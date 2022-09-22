@@ -1,13 +1,13 @@
 ---
-title: "Simple document"
+title: "Data import"
 output: html_document
 ---
 
-I'm an R Markdown document! 
+I'm an GitHub document! 
 
 # Section 1
 
-Here's a **code chunk** that samples from 
+**Data import [CSV]** 
 a _normal distribution_:
 
 ```{r}

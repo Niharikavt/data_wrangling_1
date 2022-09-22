@@ -1,0 +1,69 @@
+---
+title: "Data Manipulation with dplyr"
+output: html_document
+---
+
+
+```{r}
+library(tidyverse)
+
+options(tibble.print_min = 3)
+
+litters_data = read_csv("./data/FAS_litters.csv",
+  col_types = "ccddiiii")
+
+litters_data = janitor::clean_names(litters_data)
+
+pups_data = read_csv("./data/FAS_pups.csv",
+  col_types = "ciiiii")
+pups_data = janitor::clean_names(pups_data)
+```
+
+You can specify the columns you want to keep by naming all of them:
+
+```{r}
+select(litters_data, group, litter_number, gd0_weight, pups_born_alive)
+```
+
+You can specify the specify a range of columns to keep:
+
+```{r}
+select(litters_data, group:gd_of_birth)
+```
+
+You can also specify columns you want to remove:
+
+```{r}
+select(litters_data, pups_survive)
+```
+
+You can rename variables as part of this process:
+```{r}
+select(litters_data, GROUP = group, LiTtEr_NuMbEr = litter_number)
+```
+
+If all you want to do is rename something, you can use rename instead of select. This will rename the variables you care about, and keep everything else:
+
+```{r}
+rename(litters_data, GROUP = group, LiTtEr_NuMbEr = litter_number)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
